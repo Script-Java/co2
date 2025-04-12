@@ -1,3 +1,7 @@
+# Made by: Atrin Shahroudi
+# Description: This is a interactive dashboard
+# I made with streamlit for UI and pandas to handle data. Data Set is from Kaggle
+
 import pandas as pd
 import streamlit as st
 
@@ -33,6 +37,7 @@ st.write('Global Countries Ranking ⚙️')
 st.bar_chart(df, x='Entity', y='Annual CO₂ emissions (per capita)')
 st.write('Top 10 Rankings High to Low 🏆')
 
+# My modification start
 col3, col4, col5 = st.columns(3)
 with col3:
     st.metric('Max', round(df['Annual CO₂ emissions (per capita)'].max(),2))
@@ -46,3 +51,4 @@ with col5:
 df = df.sort_values('Annual CO₂ emissions (per capita)', ascending=False)
 df = df.sort_values('Year', ascending=False).reset_index(drop=True)
 st.dataframe(df.head(10))
+# My modification end
